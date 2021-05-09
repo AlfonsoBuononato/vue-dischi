@@ -1,10 +1,12 @@
 <template>
-  <div class="box-2">
-    <img :src="box.poster" alt="" />
-    <h3>{{ box.title }}</h3>
-    <h4>{{ box.author }}</h4>
-    <h5>{{ box.year }}</h5>
-    <h6>{{ box.genre }}</h6>
+  <div class="box">
+    <div class="box-2" v-for="(element, index) in box" :key="index">
+      <img :src="element.poster" alt="" />
+      <h3>{{ element.title }}</h3>
+      <h4>{{ element.author }}</h4>
+      <h5>{{ element.year }}</h5>
+      <h6>{{ element.genre }}</h6>
+    </div>
   </div>
 </template>
 
@@ -16,7 +18,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .box-2 {
+  width: calc(100% / 8 - 40px);
+  margin: 20px;
+  background-color: #2a3a46;
+  padding: 10px;
   img {
     width: 100%;
   }
